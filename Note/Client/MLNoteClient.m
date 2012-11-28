@@ -71,7 +71,7 @@ static MLNoteClient* _sharedClient;
                             kToken, @"token",
                             note, @"note",
                             nil];
-    [self putPath:[NSString stringWithFormat:@"notes/%d", noteId]
+    [self putPath:[NSString stringWithFormat:@"notes/%d.json", noteId]
        parameters:params
           success:success
           failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -92,7 +92,7 @@ static MLNoteClient* _sharedClient;
                             kToken, @"token",
                             note, @"note",
                             nil];
-    [self postPath:@"notes"
+    [self postPath:@"notes.json"
        parameters:params
           success:success
           failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -107,7 +107,7 @@ static MLNoteClient* _sharedClient;
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             kToken, @"token",
                             nil];
-    [self deletePath:[NSString stringWithFormat:@"notes/%d", noteId]
+    [self deletePath:[NSString stringWithFormat:@"notes/%d.json", noteId]
         parameters:params
            success:success
            failure:^(AFHTTPRequestOperation *operation, NSError *error){
