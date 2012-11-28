@@ -57,6 +57,66 @@ static MLNoteClient* _sharedClient;
           }];
 }
 
+- (void)putNoteWithId:(int)noteId
+                title:(NSString *)title
+                 body:(NSString *)body
+              success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+              failure:(void (^)(int statusCode, NSString *errorString))failure
+{
+    NSDictionary *note = [NSDictionary dictionaryWithObjectsAndKeys:
+                          title, @"title",
+                          body, @"body",
+                          nil];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            kToken, @"token",
+                            note, @"note",
+                            nil];
+    [self putPath:[NSString stringWithFormat:@"notes/%d", noteId]
+       parameters:params
+          success:success
+          failure:^(AFHTTPRequestOperation *operation, NSError *error){
+              failure([self statusCodeFromOperation:operation], [self errorStringFromOperation:operation]);
+          }];
+}
+
+- (void)createNoteWithTitle:(NSString *)title
+                       body:(NSString *)body
+                    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                    failure:(void (^)(int statusCode, NSString *errorString))failure
+{
+    NSDictionary *note = [NSDictionary dictionaryWithObjectsAndKeys:
+                          title, @"title",
+                          body, @"body",
+                          nil];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            kToken, @"token",
+                            note, @"note",
+                            nil];
+    [self postPath:@"notes"
+       parameters:params
+          success:success
+          failure:^(AFHTTPRequestOperation *operation, NSError *error){
+              failure([self statusCodeFromOperation:operation], [self errorStringFromOperation:operation]);
+          }];
+}
+
+- (void)destroyNoteWithId:(int)noteId
+                  success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                  failure:(void (^)(int statusCode, NSString *errorString))failure
+{
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            kToken, @"token",
+                            nil];
+    [self deletePath:[NSString stringWithFormat:@"notes/%d", noteId]
+        parameters:params
+           success:success
+           failure:^(AFHTTPRequestOperation *operation, NSError *error){
+               failure([self statusCodeFromOperation:operation], [self errorStringFromOperation:operation]);
+           }];
+    
+}
+
+
 #pragma mark - Helper methods
 
 - (int) statusCodeFromOperation:(AFHTTPRequestOperation *)operation

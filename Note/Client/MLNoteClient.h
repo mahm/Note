@@ -17,4 +17,20 @@
 - (void)getIndexWhenSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                     failure:(void (^)(int statusCode, NSString *errorString))failure;
 
+- (void)putNoteWithId:(int)noteId
+                title:(NSString *)title
+                 body:(NSString *)body
+              success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+              failure:(void (^)(int statusCode, NSString *errorString))failure;
+
+- (void)createNoteWithTitle:(NSString *)title
+                       body:(NSString *)body
+                    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                    failure:(void (^)(int statusCode, NSString *errorString))failure;
+
+- (void)destroyNoteWithId:(int)noteId
+                  success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                  failure:(void (^)(int statusCode, NSString *errorString))failure;
+
+
 @end
