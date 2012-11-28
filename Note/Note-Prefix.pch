@@ -11,4 +11,9 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <AFNetworking/AFNetworking.h>
+    #import <BlocksKit/BlocksKit.h>
+    #import <JSONKit/JSONKit.h>
+    #import <SVProgressHUD/SVProgressHUD.h>
+    #import "MLNoteClient.h"
 #endif

@@ -1,0 +1,23 @@
+
+PODS: 
+- AFNetworking (1.0.1)
+- BlocksKit (1.8.1): 
+  - libffi
+- JSONKit (1.5pre)
+- SVProgressHUD (0.8)
+- libffi (3.0.11)
+
+DEPENDENCIES: 
+- AFNetworking
+- BlocksKit
+- JSONKit
+- SVProgressHUD
+
+SPEC CHECKSUMS: 
+  AFNetworking: 4c11f857c9a18d65f4257c90a1e74ac49f0ac422
+  BlocksKit: 18102744fd7c44b54f1e54ce6ffe9258bcb5df81
+  JSONKit: a01a22c75f27eae76b4badd55a91c20fe6e86477
+  SVProgressHUD: 51042a14e3a716efdbdd73cbb2181fb23ee94389
+  libffi: 8a1d9ba43c0c84b546b42c6f742714e73aa07ae1
+
+COCOAPODS: 0.15.2

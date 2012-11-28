@@ -7,11 +7,17 @@
 //
 
 #import "MLAppDelegate.h"
+#import "MLNoteClient.h"
 
 @implementation MLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Load account infomation from UserDefaults
+    NSString *email = [[NSUserDefaults standardUserDefaults] valueForKey:@"email"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
+    [[MLNoteClient sharedClient] setEmail:email password:password];
+    
     // Override point for customization after application launch.
     return YES;
 }
